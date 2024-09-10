@@ -1,0 +1,17 @@
+{
+  "name": "tugas-2-paw-kelompok-13",
+  "version": "1.0.0",
+  "description": "CRUD API untuk Tugas 2 Kelompok PAW",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexander Johan Pramudito (22/492990/TK/53976), Varick Zahir Sarjiman (22/496418/TK/54384), Tsania Galuh Banggash (22/500322/TK/54832), Muhammad Rendy (22/503275/TK/54980), Tsaniya Khamal Khasanah (22/503817/TK/55074)",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.6.1",
+    "nodemon": "^3.1.4"
+  }
+}
