@@ -4,7 +4,8 @@
   "description": "CRUD API untuk Tugas 2 Kelompok PAW",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "Alexander Johan Pramudito (22/492990/TK/53976), Varick Zahir Sarjiman (22/496418/TK/54384), Tsania Galuh Banggash (22/500322/TK/54832), Muhammad Rendy (22/503275/TK/54980), Tsaniya Khamal Khasanah (22/503817/TK/55074)",

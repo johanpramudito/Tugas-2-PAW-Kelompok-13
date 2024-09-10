@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: false}))
 mongoose.set("strictQuery", false)
 
 mongoose.
-connect(`mongodb+srv://root:${process.env.PASSWORD}@nodeapi.0geri.mongodb.net/Node-API?retryWrites=true&w=majority&appName=NodeAPI`)
+connect(`${process.env.mongoDBURI}`)
 .then(() => {
     console.log('connected to MongoDB')
     app.listen(3000, () => {
