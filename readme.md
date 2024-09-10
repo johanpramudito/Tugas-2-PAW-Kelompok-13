@@ -2,12 +2,13 @@
 
 Tugas ini dibuat untuk memenuhi syarat penilaian mata kuliah Pengembangan Aplikasi Web
 
-| Nama | NIM |
-| Alexander Johan Pramudito | (22/492990/TK/53976) |
-| Varick Zahir Sarjiman | (22/496418/TK/54384) |
-| Tsania Galuh Banggash | (22/500322/TK/54832) |
-| Muhammad Rendy | (22/503275/TK/54980) |
-| Tsaniya Khamal Khasanah | (22/503817/TK/55074) |
+| Nama | NIM | 
+|----|----|
+| Alexander Johan Pramudito| (22/492990/TK/53976)|
+| Varick Zahir Sarjiman| (22/496418/TK/54384)|
+| Muhammad Rendy| (22/503275/TK/54980)|
+| Tsania Galuh Banggash| (22/503275/TK/54980)|
+| Tsaniya Khamal Khasanah| (22/503817/TK/55074)|
 
 ### Cara Mengerjakan
 1. Melakukan git clone pada repository ini
