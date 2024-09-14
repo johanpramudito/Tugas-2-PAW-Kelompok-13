@@ -11,9 +11,13 @@
   "author": "Alexander Johan Pramudito (22/492990/TK/53976), Varick Zahir Sarjiman (22/496418/TK/54384), Tsania Galuh Banggash (22/500322/TK/54832), Muhammad Rendy (22/503275/TK/54980), Tsaniya Khamal Khasanah (22/503817/TK/55074)",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.20.0",
+    "moment": "^2.30.1",
     "mongoose": "^8.6.1",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.4"
   }
 }
