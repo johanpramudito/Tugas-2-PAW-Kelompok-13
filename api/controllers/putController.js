@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const Film = require("../models/Film");
 
-// Update User
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
   const { name, gender, phone, email, address, dateOfBirth } = req.body;
@@ -30,7 +29,6 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// Update Film
 exports.updateFilm = async (req, res) => {
   const { id } = req.params;
   const { title, director, releaseYear, genre, duration, language } = req.body;
