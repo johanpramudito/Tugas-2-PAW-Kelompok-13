@@ -6,7 +6,7 @@ const { updateFilm } = require("../controllers/updateController");
 
 FilmRouter.post("/createFilm", createFilm);
 // UserRouter.get("/read", readUser);
-UserRouter.put("/updateFilm/:id", updateUser);
+FilmRouter.put("/updateFilm/:id", updateFilm);
 FilmRouter.delete("/deleteFilm/:id", deleteFilm);
 
 module.exports = FilmRouter;
