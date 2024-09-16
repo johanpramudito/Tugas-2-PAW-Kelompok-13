@@ -33,66 +33,17 @@ mongoose.connect(process.env.mongoDBURI)
   });
 
 // IMPORT MODEL
-const Film = require("./api/models/Film");
-const User = require("./api/models/User");
+const FilmRouter = require("./api/routes/FilmRoutes.js");
+const UserRouter = require("./api/routes/UserRoutes.js");
 
 // ROUTES
 app.get("/", (req, res) => {
   res.send("Kelompok 13 Backend Service");
 });
-app.use("/user", require("./api/routes/UserRoutes"));
+// app.use("/user", require("./api/routes/UserRoutes"));
+app.use("/film", FilmRouter);  // Menggunakan FilmRouter untuk route terkait film
+app.use("/users", UserRouter);
 
-
-// Get all films
-app.get('/film', async (req, res) => {  
-  try {
-    const films = await Film.find({});  
-    res.status(200).json(films);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-//get films by tittle
-app.get('/film/:title', async (req, res) => {
-  try {
-    const { title } = req.params;  
-    const film = await Film.findOne({ title });  
-
-    if (!film) {
-      return res.status(404).json({ message: `Film with title ${title} not found` });
-    }
-
-    res.status(200).json(film);  
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-//get all user
-app.get('/user', async (req, res) => {  
-  try {
-    const users = await User.find({});  
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-//get user by name
-app.get('/user/:name', async (req, res) => {  
-  try {
-    const { name } = req.params;  
-    const user = await User.findOne({ name: { $regex: new RegExp(name, 'i') } });  //suapaya besar kecil huruf ga berpengaruh
-    if (!user) {
-      return res.status(404).json({ message: `User with name ${name} not found` });
-    }
-
-    res.status(200).json(user);  
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 
 // APP START
