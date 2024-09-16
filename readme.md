@@ -7,7 +7,7 @@ Tugas ini dibuat untuk memenuhi syarat penilaian mata kuliah Pengembangan Aplika
 | Alexander Johan Pramudito| (22/492990/TK/53976)|
 | Varick Zahir Sarjiman| (22/496418/TK/54384)|
 | Muhammad Rendy| (22/503275/TK/54980)|
-| Tsania Galuh Banggash| (22/503275/TK/54980)|
+| Tsania Galuh Banggash| (22/500322/TK/54832)|
 | Tsaniya Khamal Khasanah| (22/503817/TK/55074)|
 
 ### Cara Mengerjakan
