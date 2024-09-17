@@ -32,12 +32,19 @@ mongoose.connect(process.env.mongoDBURI)
     console.log(err);
   });
 
+// IMPORT MODEL
+const FilmRouter = require("./api/routes/FilmRoutes.js");
+const UserRouter = require("./api/routes/UserRoutes.js");
+
 // ROUTES
 app.get("/", (req, res) => {
   res.send("Kelompok 13 Backend Service");
 });
-app.use("/user", require("./api/routes/UserRoutes"));
-app.use("/film", require("./api/routes/FilmRoutes"));
+// app.use("/user", require("./api/routes/UserRoutes"));
+app.use("/film", FilmRouter);  // Menggunakan FilmRouter untuk route terkait film
+app.use("/users", UserRouter);
+
+
 
 // APP START
 app.listen(3000, () => {
