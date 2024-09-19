@@ -27,6 +27,23 @@ exports.getFilmByTitle = async (req, res) => {
   }
 };
 
+// Get films by genre
+exports.getFilmsByGenre = async (req, res) => {
+  try {
+    const { genre } = req.params;
+    const films = await Film.find({ genre: { $regex: new RegExp(genre, 'i') } }); // pencarian genre tidak case-sensitive
+
+    if (films.length === 0) {
+      return res.status(404).json({ message: `No films found in genre ${genre}` });
+    }
+
+    res.status(200).json(films);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 // Get all users
 exports.getAllUsers = async (req, res) => {
   try {
