@@ -3,12 +3,12 @@ const Film = require("../models/Film");
 
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, gender, phone, email, address, dateOfBirth } = req.body;
+  const { name, gender, phone, email, password, address, dateOfBirth } = req.body;
 
   try {
     const user = await User.findByIdAndUpdate(
       id,
-      { name, gender, phone, email, address, dateOfBirth },
+      { name, gender, phone, email, password, address, dateOfBirth },
       { new: true, runValidators: true }
     );
 

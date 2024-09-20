@@ -6,10 +6,10 @@ const { updateFilm } = require("../controllers/putController");
 const { getAllFilms, getFilmByTitle, getFilmsByGenre } = require("../controllers/getController");
 
 FilmRouter.post("/createFilm", createFilm);
-// UserRouter.get("/read", readUser);
-// UserRouter.put("/update/:id", updateUser);
+FilmRouter.put("/updateFilm/:id", updateFilm);
 FilmRouter.delete("/deleteFilm/:id", deleteFilm);
-FilmRouter.get("/getFilm", getAllFilms); // Untuk GET /film
-FilmRouter.get("/getFilm/:title", getFilmByTitle); // Untuk GET /film/:title
-FilmRouter.get("/genre/:genre", getFilmsByGenre)
+FilmRouter.get("/", getAllFilms); // Untuk GET /film
+FilmRouter.get("/:title", getFilmByTitle); // Untuk GET /film/:title
+FilmRouter.get("/genre/:genre", getFilmsByGenre);
+
 module.exports = FilmRouter;

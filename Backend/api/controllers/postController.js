@@ -2,13 +2,14 @@ const User = require("../models/User");
 const Film = require("../models/Film");
 
 exports.createUser = async (req, res) => {
-    const { name, gender, phone, email, address, dateOfBirth } = req.body;
+    const { name, gender, phone, email, password, address, dateOfBirth } = req.body;
   
     const user = new User({
       name,
       gender,
       phone, 
-      email, 
+      email,
+      password,
       address, 
       dateOfBirth
     });
