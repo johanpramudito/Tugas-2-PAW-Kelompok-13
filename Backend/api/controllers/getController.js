@@ -1,10 +1,18 @@
 const Film = require('../models/Film');
 const User = require('../models/User');
 
-// Get all films
+// Get all films with optional sorting by release year
 exports.getAllFilms = async (req, res) => {
   try {
-    const films = await Film.find({});
+    // Extract the sorting order from query parameters
+    const { sort } = req.query;
+    
+    // Define sorting order: 1 for ascending, -1 for descending
+    const sortOrder = sort === 'desc' ? -1 : 1;
+
+    // Fetch films and sort by releaseYear if available
+    const films = await Film.find({}).sort({ releaseYear: sortOrder });
+
     res.status(200).json(films);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -42,7 +50,6 @@ exports.getFilmsByGenre = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 // Get all users
 exports.getAllUsers = async (req, res) => {
