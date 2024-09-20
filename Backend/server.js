@@ -42,11 +42,11 @@ app.get("/", (req, res) => {
 });
 // app.use("/user", require("./api/routes/UserRoutes"));
 app.use("/film", FilmRouter);  // Menggunakan FilmRouter untuk route terkait film
-app.use("/users", UserRouter);
+app.use("/user", UserRouter);
 
 
 
 // APP START
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+app.listen(5000, () => {
+  console.log("Server is running on http://localhost:5000");
 });
