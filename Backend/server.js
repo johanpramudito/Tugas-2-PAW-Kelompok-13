@@ -7,6 +7,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const process = require("process");
 const app = express();
+const bcrypt = require('bcryptjs');
+// const collection = require("./config");
+
 
 // DOTENV CONFIG
 dotenv.config();
@@ -16,6 +19,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
+
+
+//convert data into json format
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 
 // CORS
 app.use(cors());
