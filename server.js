@@ -6,6 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const process = require("process");
+const bcrypt = require('bcrypt');
 const app = express();
 
 // DOTENV CONFIG
