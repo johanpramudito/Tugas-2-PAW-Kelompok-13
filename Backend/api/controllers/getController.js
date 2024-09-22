@@ -2,12 +2,39 @@ const Film = require('../models/Film');
 const User = require('../models/User');
 
 // Get all films dengan sorting release year opsional
-exports.getAllFilms = async (req, res) => {
+/*exports.getAllFilms = async (req, res) => {
   try {
     const { sort } = req.query;
     
     const sortOrder = sort === 'desc' ? -1 : 1; // 1 untuk ascending, -1 untuk descending
     const films = await Film.find({}).sort({ releaseYear: sortOrder });
+
+    res.status(200).json(films);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}; */
+
+exports.getAllFilms = async (req, res) => {
+  try {
+    const { sort, genre } = req.query; 
+    
+    const sortOrder = sort === 'desc' ? -1 : 1;
+
+    let query = {};
+
+    // If genre is provided, filter by genre
+    if (genre) {
+      query.genre = { $regex: new RegExp(genre, 'i') }; 
+    }
+
+    // Fetch films based on the genre filter (if provided) and apply sorting
+    const films = await Film.find(query)
+      .sort(genre ? { releaseYear: sortOrder } : {}); 
+
+    if (films.length === 0) {
+      return res.status(404).json({ message: `No films found for the selected criteria` });
+    }
 
     res.status(200).json(films);
   } catch (error) {
