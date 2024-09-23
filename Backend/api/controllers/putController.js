@@ -31,12 +31,12 @@ exports.updateUser = async (req, res) => {
 
 exports.updateFilm = async (req, res) => {
   const { id } = req.params;
-  const { title, director, releaseYear, genre, duration, language } = req.body;
+  const { title, director, releaseYear, genre, duration, language, rating, image } = req.body;
 
   try {
     const film = await Film.findByIdAndUpdate(
       id,
-      { title, director, releaseYear, genre, duration, language },
+      { title, director, releaseYear, genre, duration, language, rating, image },
       { new: true, runValidators: true }
     );
 
