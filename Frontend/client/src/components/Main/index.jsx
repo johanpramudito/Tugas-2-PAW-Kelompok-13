@@ -22,6 +22,7 @@
         language: "",
         rating: "",
         image: "",
+        trailer: "",
     });
 
     // State for add modal
@@ -35,7 +36,11 @@
         language: "",
         rating: "",
         image: "",
+        trailer: "",
     });
+
+    const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
+    const [trailerUrl, setTrailerUrl] = useState("");
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -150,24 +155,44 @@
         language: "",
         rating: "",
         image: "",
+        trailer: "",
         });
         setIsAddModalOpen(true);
     };
 
     const handleAddSubmit = (e) => {
         e.preventDefault();
+        let trailerUrl = e.target.elements.trailer.value;
+        if (trailerUrl.includes("watch?v=")) {
+            trailerUrl = trailerUrl.replace("watch?v=", "embed/");
+        }
         const newFilmData = {
-        title: e.target.elements.title.value,
-        director: e.target.elements.director.value,
-        releaseYear: e.target.elements.releaseYear.value,
-        genre: e.target.elements.genre.value,
-        duration: e.target.elements.duration.value,
-        language: e.target.elements.language.value,
-        rating: e.target.elements.rating.value,
-        image: e.target.elements.image.value,
+            title: e.target.elements.title.value,
+            director: e.target.elements.director.value,
+            releaseYear: e.target.elements.releaseYear.value,
+            genre: e.target.elements.genre.value,
+            duration: e.target.elements.duration.value,
+            language: e.target.elements.language.value,
+            rating: e.target.elements.rating.value,
+            image: e.target.elements.image.value,
+            trailer: trailerUrl,
         };
         addFilm(newFilmData);
     };
+    
+
+        // Open trailer modal
+        const openTrailerModal = (trailer) => {
+            const embedUrl = trailer.replace("watch?v=", "embed/");
+            setTrailerUrl(embedUrl);
+            setIsTrailerModalOpen(true);
+          };          
+    
+        // Close trailer modal
+        const closeTrailerModal = () => {
+            setIsTrailerModalOpen(false);
+            setTrailerUrl("");
+        };
 
     return (
         <div className={styles.main_container}>
@@ -239,11 +264,15 @@
                     <p>Genre: {film.genre}</p>
                     <p>Duration: {film.duration} minutes</p>
                     <p>Language: {film.language}</p>
+                    <p>Rating: {film.rating}</p>
                     <button onClick={() => handleDelete(film._id)}>Delete</button>
                     <button onClick={() => openEditModal(film)}>Edit</button>
+                    <button onClick={() => openTrailerModal(film.trailer)}>
+                                    Watch Trailer
+                                </button>
                 </div>
                 </div>
-            ))
+            ))  
             )}
         </div>
 
@@ -316,6 +345,14 @@
                     type="text"
                     name="image"
                     defaultValue={currentFilm.image}
+                    />
+                </label>
+                <label>
+                    Trailer:
+                    <input
+                    type="text"
+                    name="trailer"
+                    defaultValue={currentFilm.trailer}
                     />
                 </label>
                 <button type="submit">Save Changes</button>
@@ -422,6 +459,17 @@
                     }
                     />
                 </label>
+                <label>
+                    Trailer:
+                    <input
+                    type="text"
+                    name="trailer"
+                    value={newFilm.trailer}
+                    onChange={(e) =>
+                        setNewFilm({ ...newFilm, trailer: e.target.value })
+                    }
+                    />
+                </label>
                 <button className={styles.search_btn} type="submit">
                     Add Film
                 </button>
@@ -436,6 +484,26 @@
             </div>
             </div>
         )}
+
+        {/* Modal for trailer */}
+        {isTrailerModalOpen && (
+                <div className={styles.modal}>
+                    <div className={styles.modal_content}>
+                        <iframe
+                            width="560"
+                            height="315"
+                            src={trailerUrl}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                        <span className={styles.close_btn} onClick={closeTrailerModal}>
+                            &times;
+                        </span>
+                    </div>
+                </div>
+            )}
         </div>
     );
     };
