@@ -25,6 +25,17 @@ const filmSchema = mongoose.Schema(
         language: {
             type: String,
             required: true
+        
+        },
+        rating: {
+            type: Number,
+            min: 0,
+            max: 10,
+            required: true
+        },
+        image: {
+            type: String,
+            required: [true, "Please provide the image URL"]
         }
     },
     {
