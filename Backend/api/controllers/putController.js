@@ -44,15 +44,15 @@ exports.updateUser = async (req, res) => {
 
 // Update Film
 exports.updateFilm = async (req, res) => {
-    const { id } = req.params;
-    const { title, director, releaseYear, genre, duration, language } = req.body;
+  const { id } = req.params;
+  const { title, director, releaseYear, genre, duration, language, rating, image } = req.body;
 
-    try {
-        // Check if film exists
-        const film = await Film.findById(id);
-        if (!film) {
-            return res.status(404).json({ message: "Film not found!" });
-        }
+  try {
+    const film = await Film.findByIdAndUpdate(
+      id,
+      { title, director, releaseYear, genre, duration, language, rating, image },
+      { new: true, runValidators: true }
+    );
 
         // Update the fields
         film.title = title || film.title;
