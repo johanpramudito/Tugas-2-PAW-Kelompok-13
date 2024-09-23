@@ -55,7 +55,9 @@ exports.createFilm = async (req, res) => {
             releaseYear,
             genre,
             duration,
-            language
+            language,
+            rating,
+            image
         });
 
         await film.save();
