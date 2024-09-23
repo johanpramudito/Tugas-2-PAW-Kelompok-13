@@ -46,7 +46,7 @@ exports.createUser = async (req, res) => {
 
 // Create Film
 exports.createFilm = async (req, res) => {
-    const { title, director, releaseYear, genre, duration, language } = req.body;
+    const { title, director, releaseYear, genre, duration, language, rating, image } = req.body;
 
     try {
         const film = new Film({
