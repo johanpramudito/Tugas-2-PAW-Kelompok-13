@@ -46,7 +46,7 @@ exports.createUser = async (req, res) => {
 
 // Create Film
 exports.createFilm = async (req, res) => {
-    const { title, director, releaseYear, genre, duration, language, rating, image } = req.body;
+    const { title, director, releaseYear, genre, duration, language, rating, image, trailer } = req.body;
 
     try {
         const film = new Film({
@@ -57,7 +57,8 @@ exports.createFilm = async (req, res) => {
             duration,
             language,
             rating,
-            image
+            image,
+            trailer
         });
 
         await film.save();

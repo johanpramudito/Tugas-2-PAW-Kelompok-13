@@ -36,7 +36,11 @@ const filmSchema = mongoose.Schema(
         image: {
             type: String,
             required: [true, "Please provide the image URL"]
-        }
+        },
+        trailer: {
+            type: String,
+            required: [true, "Please provide the trailer URL"]
+        },
     },
     {
         timestamps: true
