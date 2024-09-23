@@ -19,7 +19,9 @@ const Main = () => {
         releaseYear: "",
         genre: "",
         duration: "",
-        language: ""
+        language: "",
+        rating: "",
+        image: ""
     });
 
     // State for add modal
@@ -30,7 +32,9 @@ const Main = () => {
         releaseYear: "",
         genre: "",
         duration: "",
-        language: ""
+        language: "",
+        rating: "",
+        image: ""
     });
 
     const handleLogout = () => {
@@ -123,7 +127,9 @@ const Main = () => {
             releaseYear: e.target.elements.releaseYear.value,
             genre: e.target.elements.genre.value,
             duration: e.target.elements.duration.value,
-            language: e.target.elements.language.value
+            language: e.target.elements.language.value,
+            rating : e.target.elements.rating.value,
+            image: e.target.elements.image.value
         };
         updateFilm(currentFilm._id, updatedFilm);
     };
@@ -135,7 +141,9 @@ const Main = () => {
             releaseYear: "",
             genre: "",
             duration: "",
-            language: ""
+            language: "",
+            rating: "",
+            image: ""
         });
         setIsAddModalOpen(true);
     };
@@ -148,7 +156,9 @@ const Main = () => {
             releaseYear: e.target.elements.releaseYear.value,
             genre: e.target.elements.genre.value,
             duration: e.target.elements.duration.value,
-            language: e.target.elements.language.value
+            language: e.target.elements.language.value,
+            rating : e.target.elements.rating.value,
+            image: e.target.elements.image.value
         };
         addFilm(newFilmData);
     };
@@ -157,7 +167,7 @@ const Main = () => {
         <div className={styles.main_container}>
             <nav className={styles.navbar}>
                 <h1>Film</h1>
-                <button className={styles.white_btn} onClick={handleLogout}>
+                <button className={styles.search_btn} onClick={handleLogout}>
                     Logout
                 </button>
             </nav>
@@ -199,7 +209,7 @@ const Main = () => {
                 </select>
             </form>
 
-            <button onClick={openAddModal} className={styles.add_btn}>
+            <button onClick={openAddModal} className={styles.search_btn}>
                 Add New Film
             </button>
 
@@ -289,8 +299,16 @@ const Main = () => {
                                 Language:
                                 <input type="text" name="language" value={newFilm.language} onChange={(e) => setNewFilm({...newFilm, language: e.target.value})} />
                             </label>
-                            <button type="submit">Add Film</button>
-                            <button type="button" onClick={() => setIsAddModalOpen(false)}>Cancel</button>
+                            <label>
+                                Rating:
+                                <input type="text" name="rating" value={newFilm.rating} onChange={(e) => setNewFilm({...newFilm, rating: e.target.value})} />
+                            </label>
+                            <label>
+                                Image:
+                                <input type="text" name="image" value={newFilm.image} onChange={(e) => setNewFilm({...newFilm, image: e.target.value})} />
+                            </label>
+                            <button className={styles.search_btn} type="submit">Add Film</button>
+                            <button className={styles.search_btn} type="button" onClick={() => setIsAddModalOpen(false)}>Cancel</button>
                         </form>
                     </div>
                 </div>
