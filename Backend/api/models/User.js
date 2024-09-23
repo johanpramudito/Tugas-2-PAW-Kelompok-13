@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
         gender: {
             type: String,
             enum: ['Male', 'Female'],
-            required: [true, "Please enter 'Male' or 'Female'"],
+            required: [false, "Please enter 'Male' or 'Female'"],
         },
         phone: {
             type: String,
@@ -23,13 +23,17 @@ const userSchema = new mongoose.Schema(
             unique: true,
             lowercase: true,
         },
-        address: {
+        password: {
             type: String,
             required: true,
         },
+        address: {
+            type: String,
+            required: false,
+        },
         dateOfBirth: {
             type: Date,  
-            required: [true, "Please enter your date of birth in the format YYYY-MM-DD."],
+            required: [false, "Please enter your date of birth in the format YYYY-MM-DD."],
             validate: {
             validator: function(value) {
                 const formattedDate = moment(value).format('YYYY-MM-DD');
