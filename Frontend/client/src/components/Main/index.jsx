@@ -37,6 +37,15 @@ const Main = () => {
 			setNoDataFound(true);
 		}
 	}, [searchParams, genre, sort]);
+
+    const deleteFilm = useCallback(async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/film/deleteFilm/${id}`);
+            fetchFilms();
+        } catch (error) {
+            console.error("Error deleting film:", error);
+        }
+    }, [fetchFilms]);
 	
 
     useEffect(() => {
@@ -56,6 +65,10 @@ const Main = () => {
         const searchTerm = e.target.elements.search.value;
         setSearchParams({ title: searchTerm, genre, sort });
     };
+
+    const handleDelete = (id) => {
+        deleteFilm(id);
+    }
 
     return (
         <div className={styles.main_container}>
@@ -115,6 +128,7 @@ const Main = () => {
                             <p>Genre: {film.genre}</p>
                             <p>Duration: {film.duration} minutes</p>
                             <p>Language: {film.language}</p>
+                            <button onClick={() => handleDelete(film._id)}>Delete</button>
                         </div>
                     ))
                 )}
