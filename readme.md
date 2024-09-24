@@ -20,14 +20,14 @@ Tugas ini dibuat untuk memenuhi syarat penilaian mata kuliah Pengembangan Aplika
 Jangan lupa untuk download .env di grup
 
 ### Pembagian Tugas
-- ### johan:
+- ### Johan:
   delete controller, filter (tapi ini ngubah get juga akhirnya), optional: nambah modal popup dan trailer usesearchparams
-- ### ⁠varick: 
+- ### ⁠Varick: 
 Backend: Create(post) dan 
 Frontend: Login & Signup
-- ### ⁠rendy:
+- ### ⁠Rendy:
   put, sort
-- ### ⁠tsania galuh:
+- ### ⁠Tsania Galuh:
   backend: api models,
   frontend: main page (search bar, dropdown utk genre filter & sort by release year)
 - ### ⁠Tsaniya Khamal :
