@@ -18,3 +18,19 @@ Tugas ini dibuat untuk memenuhi syarat penilaian mata kuliah Pengembangan Aplika
 5. Bilang kalau ingin melakukan pull request
 
 Jangan lupa untuk download .env di grup
+
+### Pembagian Tugas
+- ### johan:
+  delete controller, filter (tapi ini ngubah get juga akhirnya), optional: nambah modal popup dan trailer usesearchparams
+- ### ⁠varick: 
+Backend: Create(post) dan 
+Frontend: Login & Signup
+- ### ⁠rendy:
+  put, sort
+- ### ⁠tsania galuh:
+  backend: api models,
+  frontend: main page (search bar, dropdown utk genre filter & sort by release year)
+- ### ⁠Tsaniya Khamal :
+  Get, authentication (menambahkan hash pada sign in, dan post pada login schema)
+
+
