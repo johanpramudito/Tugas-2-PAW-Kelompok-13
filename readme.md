@@ -26,7 +26,7 @@ Jangan lupa untuk download .env di grup
 Backend: Create(post) dan 
 Frontend: Login & Signup
 - ### ⁠Rendy:
-  put, sort
+  put, sort on get controller
 - ### ⁠Tsania Galuh:
   backend: api models,
   frontend: main page (search bar, dropdown utk genre filter & sort by release year)
