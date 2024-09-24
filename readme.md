@@ -31,6 +31,6 @@ Frontend: Login & Signup
   backend: api models,
   frontend: main page (search bar, dropdown utk genre filter & sort by release year)
 - ### ⁠Tsaniya Khamal :
-  Get, authentication (menambahkan hash pada sign in, dan post pada login schema)
+  Get, authentication (post : menambahkan hash pada sign in, login dan login schema)
 
 
